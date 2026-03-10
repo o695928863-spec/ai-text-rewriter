@@ -4,6 +4,11 @@ from openai import OpenAI
 import os
 import pandas as pd
 
+PASSWORD = "1234"  # 你可以改成自己想要的密码
+password_input = st.text_input("Enter password:", type="password")
+if password_input != PASSWORD:
+    st.warning("Wrong password. Access denied!")
+    st.stop()  # 密码错误，停止程序
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 st.title("AI Batch Text Rewriter")
@@ -67,4 +72,5 @@ if uploaded_file is not None:
             data=result_text,
             file_name="rewritten_results.txt",
             mime="text/plain"
+
         )
