@@ -3,7 +3,8 @@ import streamlit as st
 from openai import OpenAI
 import os
 import pandas as pd
-
+st.stop()  # 立即停止运行
+st.write("App is temporarily closed.")
 PASSWORD = "1234"  # 你可以改成自己想要的密码
 password_input = st.text_input("Enter password:", type="password")
 if password_input != PASSWORD:
@@ -74,3 +75,4 @@ if uploaded_file is not None:
             mime="text/plain"
 
         )
+
